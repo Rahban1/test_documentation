@@ -18,6 +18,9 @@ jobs:
       - name: Install dependencies
         run: |
           julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
+      - name: Instantiate
+        run: |
+          julia --project=docs/ -e 'import Pkg; Pkg.add("Documenter")'
       - name: Build and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
