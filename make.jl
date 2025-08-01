@@ -21,3 +21,9 @@ makedocs(
     ],
     build = "build",
 )
+
+deploydocs(
+    repo = "github.com/rahban1/test_documentation.git",
+    devbranch = "main",
+    push_preview = true
+)
