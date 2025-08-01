@@ -17,12 +17,12 @@ jobs:
       - uses: julia-actions/cache@v1
       - name: Install dependencies
         run: |
-          julia --project=docs/ -e 'using Pkg; Pkg.instantiate()'
+          julia  -e 'using Pkg; Pkg.instantiate()'
       - name: Instantiate
         run: |
-          julia --project=docs/ -e 'import Pkg; Pkg.add("Documenter")'
+          julia -e 'import Pkg; Pkg.add("Documenter")'
       - name: Build and deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
-        run: julia --project=docs/ make.jl 
+        run: julia make.jl 
